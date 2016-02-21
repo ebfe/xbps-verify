@@ -26,6 +26,11 @@ int main(int argc, char *argv[]) {
 	struct xbps_handle xhp = {0};
 	int err;
 
+	if (argc != 2) {
+		fprintf(stderr, "usage: %s pkgfile\n", argv[0]);
+		return 1;
+	}
+
 	err = xbps_init(&xhp);
 	if (err) {
 		die("xbps_init", err);
